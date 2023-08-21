@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        h1{
+            text-align: center;
+            color:purple;
+        }
+        #todo-list {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 10px solid #03f986;
+            border-radius: 10px;
+            background-color: yellowgreen;
+        }
+
+        p,
+        input[type="checkbox"] {
+            display: inline;
+            margin: 10px;
+        }
+        button{
+            display: inline;
+        }
+        .completed {
+            text-decoration: line-through;
+        }
+        .delete-btn{
+            color: red;
+        }
+        .clear{
+            background-color: yellow;
+        }
+        .add{
+            background-color: blue;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="todo-list">
+        <h1>TODO</h1>
+        <!-- <input type="text" id="todo" ></textarea> -->
+        <input type="text" id="todo" placeholder="Enter Todo" value="s">
+        <button class="add" onclick="handleAdd()">Add</button>
+        <div id="todolist">
+        </div><br>
+        <button class="clear" onclick="handleClear()">Clear</button>
+    </div>
+    <script>
+        const todoinput = document.getElementById("todo");
+        const todolist = document.getElementById("todolist");
+        // console.log("test");
+        function handleAdd() {
+            const todotext = todoinput.value;
+            if (todotext === "")
+                return;
+            // console.log("test2")
+            const todoElement = document.createElement("div");
+            todoElement.innerHTML = `
+                <input type="checkbox" id="checkB" onclick="handleCheckBox(event)">
+                <p>${todotext}</p>
+                <button class="delete-btn" onclick="handleDelete(event)"">Delete</button>
+            `;
+            todolist.appendChild(todoElement);
+            todoinput.value = "";
+
+        }
+        function handleCheckBox(event) {
+            const pdiv = event.target.parentNode;
+            const delbtn = pdiv.getElementsByClassName("delete-btn")[0]
+            const para = pdiv.getElementsByTagName("p")[0]
+            // console.log(delbtn)
+            delbtn.disabled = event.target.checked;
+            if (event.target.checked) {
+                para.classList.add("completed");
+            }
+            else {
+                para.classList.remove("completed");
+            }
+
+        }
+        function handleDelete(event) {
+            event.target.parentNode.remove();
+        }
+        function handleClear() {
+            const todolist = document.getElementById("todolist");
+            const checkboxes = todolist.querySelectorAll("#checkB");
+
+            checkboxes.forEach(checkbox => {
+                if (checkbox.checked) {
+                    checkbox.parentNode.remove();
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
