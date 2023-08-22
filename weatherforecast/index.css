@@ -1,0 +1,64 @@
+#weather-forecast{
+    width: 40%;
+    height: 700px;
+    background-image: url("sky.jpg");
+    background-size: cover;
+    background-position: center;
+    margin-left: 30%;
+}
+#weather-forecast img {
+    max-width: 100%;
+    max-height: 100%;
+}
+.forecast{
+    margin-left: 5px;
+    color: rgb(49, 194, 247);
+}
+#loc{
+    margin-left: 5%;
+}
+#current{
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: rgb(255, 255, 255);
+}
+.location{
+    font-size:larger;
+    padding-top: 10px;
+    
+}
+#condition{
+    font-size:medium;
+}
+#temp{
+    font-size:xx-large;
+}
+#ph{
+    font-size:medium;
+}
+#rowlabel,#icon{
+    display: inline-flex;
+    width: 20%;
+    justify-content: center;
+    padding-bottom: 5px;
+}
+#avglabel1{
+    width: 50%;
+    font-size:large;
+    float: left;
+}
+#avglabel2{
+    
+    font-size:large;
+}
+hr{
+    height: 3px;
+    background-color: white;
+}
+h1{
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: rgb(255, 255, 255);
+}
