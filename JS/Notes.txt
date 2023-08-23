@@ -1,0 +1,168 @@
+Javascript
+
+- dynamic html
+- client side scripting language
+- interpreter
+- weakly typed : no data types
+- object based
+
+JS Runtime
+single threaded
+multi threading : async & callbacks
+
+EC : Execution context
+
+stack : call stack (functions)
+heap : memory allocations
+
+Types
+
+1. internal : <script></script>
+2. external : <script src="filename.js"></script>
+
+<script></script>
+<script src="filename.js"></script>
+
+Variables
+
+1. var : scoping issues
+2. let & const : block scope variables
+
+Functions
+
+1. named function
+   function fun_name(){}
+2. unnamed/anonymous function
+   function(){}
+3. arrow function (=>)
+   ()=>{}
+
+All functions are return type functions by default
+
+window
+
+- document : DOM (dynamic html)
+- location : BOM (url, refresh, back, forward)
+- navigator : BOM (use browser supported features, camera, gps, mic, speakers, bluetooth)
+
+JS
+Core : syntax, runtime
+
+DOM
+1. finding the element
+getElementById : single object
+getElementsByTagName : array of objects
+getElementsByClassName: array of objects
+
+querySelector : single object
+querySelectorAll : array of objects
+
+2. when do we want to perform an activity : Events
+mouse related
+onclick
+ondblclick
+onmouseover
+onmouseout
+onmousemove
+onmouseup
+onmousedown
+
+keyboard event
+onkeypress
+onkeyup
+onkeydown
+
+Form events
+onsubmit
+onreset
+
+onfocus
+onblur
+onchange
+onselect
+
+AJAX : async Javascript & XML
+Promise
+
+async : callbacks
+        promise
+
+BOM : Browser object model
+location
+navigator
+history
+
+shims/polyfills : fallback solutions for any feature not supported by the browser
+
+JS DOM ASSIGNMENT
+create a simple to-do list with below use cases
+1. add to-do
+2. update to-do status to pending/done
+3. remove to-do
+Display the to-do in the UI with relevant UI elements using forms, buttons, text, checkbox (to update status)
+
+Modules : libraries
+lib
+   index.html
+   main.js
+   math-lib.js
+
+Node JS
+1. development runtime : scripts
+2. dependency management
+
+package.json : node config file
+npm -v
+npm init : generates a standard package.json file 
+
+npm install package-name --flags
+
+--flags
+
+--global/-g : global installation (system level installs) : CLI (npm)
+
+local install/application specific libraries
+--save/-S (default) : dependency : required in dev & production
+--save-dev/-D : dev dependency : required only in dev stage
+
+npm install webpack
+npm install webpack-cli -D
+
+.gitignore
+node_modules
+package-lock.json
+
+package.json : npm install
+
+major.minor.patch
+^1.0.0 : min 1.0.0 or latest minor release (1.1.0)
+~1.0.0 : min 1.0.0 or latest patch release (1.0.1)
+ 1.0.0 : download 1.0.0 only
+
+Run a script
+npm run script-name
+npm run build
+
+TS Compiler : tsc
+sudo npm uninstall -g tsc
+sudo npm install -g typescript
+
+ts --init : tsConfig.json : typescript compiler options
+
+VS Code plugins
+auto rename tag
+error lens
+git lens
+paste json as code
+path intellisense
+prettier
+
+TS
+create an application to display current weather forecast using https://www.weatherapi.com/
+1. display the weather forecast based on a location
+2. location can be retrieved using the geolocation api (optional)
+   or
+   directly enter the city details
+3. display the current temp, humidity, min temp, max temp
+
+http://api.weatherapi.com/v1/forecast.json?key=apiKey&q=London&days=5&aqi=no&alerts=no

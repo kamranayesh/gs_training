@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="testEvent(this)">Test 1</button>
+    <button onclick="testEvent()">Test 2</button>
+    <script>
+      function testEvent(ele) {
+        console.log(event.target);
+        console.log(ele);
+      }
+      function hello() {}
+    </script>
+  </body>
+</html>

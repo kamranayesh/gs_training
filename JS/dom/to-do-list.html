@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form>
+      <input type="text" id="todo" />
+    </form>
+    <ul></ul>
+
+    <script>
+      "use strict";
+      let list = [];
+      const input = document.getElementById("todo");
+      function addTodo() {
+        // list.push(input.value); // mutates the array
+        list = [...list, { value: input.value, status: "pending" }];
+        displayData();
+      }
+      function removeData(i) {
+        list = list.filter((item, index) => index !== i);
+        displayData();
+      }
+      function updataData(i) {
+        list = list.map((item, index) => {
+          if (index === i) {
+            item.status = item.status === "pending" ? "done" : "pending";
+          }
+          return item;
+        });
+      }
+    </script>
+  </body>
+</html>

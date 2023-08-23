@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="test">Some content</p>
+    <button onclick="testFunc()">Change Content</button>
+    <h1>Test</h1>
+    <h3>Demo</h3>
+    <script>
+      function testFunc() {
+        document.getElementById("test").innerHTML = "content changed";
+        alert("RENDER BLOCKING");
+      }
+      //  testFunc();
+    </script>
+  </body>
+</html>
