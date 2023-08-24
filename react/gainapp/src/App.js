@@ -2,29 +2,39 @@ import logo from "./logo.svg";
 import "./App.css";
 import Login from "./Login";
 import Homepage from "./Homepage";
+import Home from "./Home";
 import Counter from "./Classbasedcounter";
 import { useState } from "react";
+import Student from "./Student";
+import Todo from "./Todo";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import Ecommerce from "./Ecommerce";
+
 function App() {
   const [hide, setHide] = useState(false);
   const toggle = () => {
     setHide(!hide);
   };
+  let students = ["Kamran", "Sana", "Nidhi", "Apoorva", "Shreyanshi"];
   return (
     <div className="App">
-      <button onClick={toggle}>Show/Hide</button>
-      {hide ? "" : <Counter />}
-      {/* <Counter /> */}
-      <Login title="Do Login here" hobby="travelling"></Login>
-      {/* <h1> Lazy Cats</h1>
-        <img src="cat1.jpg.webp" alt="Image 1"></img>
-        <img src="cat2.jpg" alt="Image 1"></img>
-        <img src="cat3.jpeg" alt="Image 1"></img>
-        <img src="cat4.jpeg" alt="Image 1"></img>
-        <img src="cat5.jpeg" alt="Image 1"></img>
-        <img src="cat6.jpeg" alt="Image 1"></img>
-        <img src="cat7.jpeg" alt="Image 1"></img>
-        <img src="cat8.jpg" alt="Image 1"></img> */}
-      <Homepage></Homepage>
+      <BrowserRouter>
+        {/* <Link to="/"> Home</Link>
+        <br />
+        <Link to="/todos"> Todos</Link>
+        <br />
+        <Link to="/students"> Students</Link>
+        <br />
+        <Link to="/ecommerce"> Ecommerce</Link>
+        <br /> */}
+        <Ecommerce />
+        <Routes>
+          {/* <Route path="/" element={<Home />} /> */}
+          <Route path="/todos" element={<Todo />} />
+          <Route path="/students" element={<Student students={students} />} />
+          <Route path="/ecommerce" element={<Ecommerce />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

@@ -1,0 +1,42 @@
+1)you have to create a forum API
+
+forum : title(min 10 characters and max 100), doc(data of creation),forumbody(min 50 characters and max 500),
+author(only alpha numberis, min length=5, max length 50)
+
+Below are the urls of API
+
+localhost:4000/forum --> post request 
+You have to to get all forums. 
+url should be localhost:4000/forum --> get request
+
+you have to edit the forum
+url should be localhost:4000/forum/:id --> put request 
+Note: implement same validation as u did for creating a forum
+
+you have to delete the forum
+url should be localhost:4000/forum/:id --> delete request 
+
+
+2)you have to create a forum replies API
+in every forum ppl can reply. 
+fields are 
+1) title(min 10 characters and max 50), doc(data of creation),replybody(min 50 characters and max 500),
+author(only alpha numberis, min length=5, max length 50), forumId(id of forum wich is the forum. do a linking with forum model).
+
+You should be able to create, read,update and delete replies.
+
+
+
+
+
+3)create a user registration API where you can send username,email,password.
+ create the post api to register. 
+ create CRUD API(create,read,update and delete)
+
+ Create a API with model name as userdetails. the fields in the model should be first_name,last/_name,dob,phone,address and city and user(link with user model)
+ This the model that contains all user details. Now you need create a CRUD API for userdetails.
+ 
+ now you have to create all CRUD API for userdetails but with one additional api with path as /user/details where you will fetch all details form both userdetails and user model. 
+
+
+

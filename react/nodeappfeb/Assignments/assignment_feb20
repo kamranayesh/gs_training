@@ -1,0 +1,30 @@
+1) you have created todo api. Now you have to shift all functions to a controler file called todocontroller.js . same as we did for products route. 
+2)YOu did below assignemnt
+ Create a users api
+each user is an object with {name:"tom",email:"tom@asfas.com",creation_date:"12-dec-2001",username:"tom123"}
+
+now create urls as 
+ localhost:3001/users --> show all users in json
+ localhost:3001/users/:id --> to show each users
+ localhost:3001/users/ -->create post request to add user
+ localhost:3001/users/remove/:id --> you will need to remove a user by id. This should be get request.
+
+ Now you have to do this in express generator. Note: The users route is already created. so now make all these urls work in express generator app. 
+ Make sure you move all functions in userscontroller.js file
+
+3) Below is assignment u did in express before.  
+create a products api. 
+each product has a format like {name:"Tshirt",price:1233,description:"amazing tshirt",itemcount:12}
+
+now create urls as 
+ localhost:3001/products --> show all products in json
+ localhost:3001/products/:id --> to show each product
+ localhost:3001/products/ -->create post request to add product
+ localhost:3001/products/remove/:id --> you will need to remove a product by id. This should be get request.
+
+ Now you have to do this in express generator. Note: The products route is already created. so now make all these urls work in express generator app. 
+ Make sure you move all functions in productscontroller.js file
+
+4) you have created product api, users api and todo api. but one this is pending. that is modifying the item. 
+Now you will create a form called modifytodo. in this form you will create a form where you can select the id to modify(make it as a select box). then show other fields. then you can enter the new item details.id you can get from select box. now post this data to the backend using a post request and modify the details as per the id entered. 
+You have to do this feature for products, todo and users.

@@ -1,0 +1,25 @@
+1) create database 
+ use <databasename> 
+ ex: use nodedecember21
+
+
+2) create a collecton in the database you are in(u r now in nodedecember21)
+   db.createCollection("products");
+
+3) how to insert a value in a collection. 
+db.<collectionname>.insert(<object>)
+
+ex:
+db.products.insert({name:"Tshirt",price:2000});
+
+4) how to list values in a collection 
+
+db.<collectionname>.find()
+
+ex: 
+db.products.find() 
+
+5) to delete a database run the command
+db.dropDatabase()
+Note: you should be in the database to run this command and it will delete
+the database that you are in .
