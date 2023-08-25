@@ -2,6 +2,7 @@ import { useState } from "react";
 
 const Counter = () => {
   let [count, setcount] = useState(0);
+  console.log("Test");
   const increase = () => {
     setcount(count + 1);
   };

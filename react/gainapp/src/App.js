@@ -3,12 +3,16 @@ import "./App.css";
 import Login from "./Login";
 import Homepage from "./Homepage";
 import Home from "./Home";
-import Counter from "./Classbasedcounter";
+import Counter from "./Counter";
 import { useState } from "react";
 import Student from "./Student";
-import Todo from "./Todo";
+import Todo from "./todo/Todo";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Ecommerce from "./Ecommerce";
+import RefExample from "./refhook";
+import Ecommercestruct from "./Ecommercestruct";
+import ReduxCounter from "./ReduxCounter";
+import EmployeeApp from "./EmployeeApp/EmployeeApp";
 
 function App() {
   const [hide, setHide] = useState(false);
@@ -26,13 +30,17 @@ function App() {
         <Link to="/students"> Students</Link>
         <br />
         <Link to="/ecommerce"> Ecommerce</Link>
+        <br />
+        <Link to="/ecommercestruct"> Ecommerce Strcutured</Link>
         <br /> */}
-        <Ecommerce />
+        {/* <ReduxCounter /> */}
+        <EmployeeApp />
         <Routes>
           {/* <Route path="/" element={<Home />} /> */}
           <Route path="/todos" element={<Todo />} />
           <Route path="/students" element={<Student students={students} />} />
           <Route path="/ecommerce" element={<Ecommerce />} />
+          <Route path="/ecommercestruct" element={<Ecommercestruct />} />
         </Routes>
       </BrowserRouter>
     </div>
