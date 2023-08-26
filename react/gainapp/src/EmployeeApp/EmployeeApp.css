@@ -1,10 +1,19 @@
-#employee-list{
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 10px solid #037ef9;
-    border-radius: 10px;
-    background-color: white;
+@keyframes bounce {
+	0%, 100%, 20%, 50%, 80% {
+		-webkit-transform: translateY(0);
+		-ms-transform:     translateY(0);
+		transform:         translateY(0)
+	}
+	40% {
+		-webkit-transform: translateY(-30px);
+		-ms-transform:     translateY(-30px);
+		transform:         translateY(-30px)
+	}
+	60% {
+		-webkit-transform: translateY(-15px);
+		-ms-transform:     translateY(-15px);
+		transform:         translateY(-15px)
+	}
 }
 
 #emp{
@@ -15,3 +24,46 @@
 #empH{
     color: #037ef9;
 }
+/* .deletebtn{
+    color: red;
+} */
+.employee{
+    /* display:flex;
+    width: 1280px;
+    height: 720px; */
+    background: rgb(148,255,219);
+    background: linear-gradient(90deg, rgba(68,224,255,1) 0%, rgba(185,255,244,1) 15%, rgb(255, 255, 255),rgba(166,221,254,1) 85%, rgba(68,224,255,1) 100%);
+    height:100vh;
+    position: absolute;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 35px;
+    justify-items: center;
+    padding-top: 100px;
+    padding-bottom: 75px;
+    width: 100vw;
+    justify-content: center;
+    
+}
+
+.card{
+    width: 300px;
+    height: 200px;
+    border: 0.0625rem solid #dadce0;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    cursor:grab;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+}
+  .card:hover {
+    animation-name: bounce;
+    -moz-animation-name: bounce;
+  }
