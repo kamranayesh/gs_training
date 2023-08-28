@@ -1,0 +1,6 @@
+{
+	"good": "bein",
+	"good_morning": "Bonjour",
+	"welcome": "Bienvenue",
+	"welcome": "Bienvenue {{name}}"
+}

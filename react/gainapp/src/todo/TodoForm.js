@@ -16,7 +16,7 @@ const TodoForm = ({ addTodo }) => {
         <option value="complete">Complete</option>
         <option value="Incomplete">Incomplete</option>
       </select>
-      <Button variant="contained" class="add" type="submit">
+      <Button variant="contained" className="add" type="submit">
         Add
       </Button>
     </form>

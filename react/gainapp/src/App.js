@@ -13,7 +13,8 @@ import RefExample from "./refhook";
 import Ecommercestruct from "./Ecommercestruct";
 import ReduxCounter from "./ReduxCounter";
 import EmployeeApp from "./EmployeeApp/EmployeeApp";
-
+import ReduxTodo from "./ReduxTodo";
+import ReduxEmployee from "./ReduxEmployee";
 function App() {
   const [hide, setHide] = useState(false);
   const toggle = () => {
@@ -33,8 +34,8 @@ function App() {
         <br />
         <Link to="/ecommercestruct"> Ecommerce Strcutured</Link>
         <br /> */}
-        {/* <ReduxCounter /> */}
-        <EmployeeApp />
+        <ReduxEmployee />
+
         <Routes>
           {/* <Route path="/" element={<Home />} /> */}
           <Route path="/todos" element={<Todo />} />
