@@ -78,7 +78,7 @@ app.delete("/deleteemployee", function (request, response) {
     msg: "operation to  delete all employees  is complete",
   });
 });
-server.listen(3005);
+server.listen(3001);
 console.log(
   "Employee simple api is running on 3005 port!it doesnt need any backend"
 );

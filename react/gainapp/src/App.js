@@ -15,6 +15,11 @@ import ReduxCounter from "./ReduxCounter";
 import EmployeeApp from "./EmployeeApp/EmployeeApp";
 import ReduxTodo from "./ReduxTodo";
 import ReduxEmployee from "./ReduxEmployee";
+import Blog from "./contextExample/Blog";
+import Counter_ from "./Counter_";
+import LazyHome from "./lazyandsuspense/LazyHome";
+import ForgetPassword from "./ForgetPassword";
+
 function App() {
   const [hide, setHide] = useState(false);
   const toggle = () => {
@@ -24,24 +29,49 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        {/* <Link to="/"> Home</Link>
-        <br />
-        <Link to="/todos"> Todos</Link>
-        <br />
-        <Link to="/students"> Students</Link>
-        <br />
-        <Link to="/ecommerce"> Ecommerce</Link>
-        <br />
-        <Link to="/ecommercestruct"> Ecommerce Strcutured</Link>
-        <br /> */}
-        <ReduxEmployee />
+        <Link className="nav-bar-items" to="/">
+          Home
+        </Link>
 
+        <Link className="nav-bar-items" to="/todos">
+          Todos
+        </Link>
+
+        <Link className="nav-bar-items" to="/students">
+          Students
+        </Link>
+
+        <Link className="nav-bar-items" to="/ecommerce">
+          Ecommerce
+        </Link>
+
+        <Link className="nav-bar-items" to="/ecommercestruct">
+          Ecommerce Strcutured
+        </Link>
+        <Link className="nav-bar-items" to="/reduxemployee">
+          Redux Employee
+        </Link>
+        <Link className="nav-bar-items" to="/lazyhome">
+          Lazy Home
+        </Link>
+
+        <Link className="nav-bar-items" to="/login">
+          Login
+        </Link>
+        {/* <Counter_ /> */}
+        {/* <Blog /> */}
+        {/* <ReduxEmployee /> */}
         <Routes>
           {/* <Route path="/" element={<Home />} /> */}
           <Route path="/todos" element={<Todo />} />
           <Route path="/students" element={<Student students={students} />} />
           <Route path="/ecommerce" element={<Ecommerce />} />
           <Route path="/ecommercestruct" element={<Ecommercestruct />} />
+          <Route path="/reduxemployee" element={<ReduxEmployee />} />
+          <Route path="/lazyhome" element={<LazyHome />} />
+          <Route path="/login" element={<Login />}>
+            <Route path="forgetpassword" element={<ForgetPassword />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </div>
