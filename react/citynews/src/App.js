@@ -1,23 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+
+import { useEffect } from "react";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import CityNews from "./CityNews";
+import Description from "./Description";
+import { useDispatch, useSelector } from "react-redux";
+import CityNewsList from "./CityNewsList";
+
+import Home from "./Home";
 
 function App() {
+  const [cityNewsList] = useSelector((state) => {
+    // console.log(state.todos);
+    return [state];
+  });
+
+  useEffect(() => {}, [cityNewsList]);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Link className="city-list" to="/">
+          Home
+        </Link>
+        <CityNewsList />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path=":id" element={<CityNews />}>
+            <Route path="description" element={<Description />} />
+            <Route path="description" element={<Description />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
