@@ -25,7 +25,7 @@ Types
 
 Variables
 
-1. var : scoping issues
+1. var : scoping issues (can be used outside scope or block)
 2. let & const : block scope variables
 
 Functions

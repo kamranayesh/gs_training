@@ -4,7 +4,7 @@ function fun_name(): void {
 }
 
 function fun_name1(): string {
-  return 0;
+  return "0";
 }
 
 function fun_name2(a: number, b: string) {
