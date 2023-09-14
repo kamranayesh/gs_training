@@ -1,0 +1,5 @@
+<div class="d-flex flex-row-reverse">
+  <select (change)="getSelectedCode($event)" class="form-control-sm">
+    <option *ngFor="let c of codes">{{ c }}</option>
+  </select>
+</div>

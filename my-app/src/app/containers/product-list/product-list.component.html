@@ -1,0 +1,13 @@
+<!-- {{ detectChangeDetection() }} -->
+<!-- <button (click)="updatePrice()">Update Price</button> -->
+<ng-container *ngIf="curr$ | async as mycode">
+  <div class="row">
+    <div *ngFor="let item of product$ | async" class="col-md-3 my-3">
+      <app-product
+        [currentCurrencyCode]="mycode"
+        [data]="item"
+        (btnClick)="addItem($event)"
+      ></app-product>
+    </div>
+  </div>
+</ng-container>

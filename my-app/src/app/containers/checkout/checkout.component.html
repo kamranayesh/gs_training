@@ -1,0 +1,87 @@
+<div class="row">
+  <div class="col-md-12">
+    <button
+      type="button"
+      (click)="loadData()"
+      class="btn btn-sm btn-outline-primary"
+    >
+      Load
+    </button>
+    <button
+      type="button"
+      (click)="patchData()"
+      class="btn btn-sm btn-outline-primary"
+    >
+      Patch
+    </button>
+  </div>
+  <form
+    [formGroup]="checkoutForm"
+    (submit)="saveData()"
+    errorTailor
+    class="bg-light col p-2"
+  >
+    <div class="form-group">
+      <label for>Name</label>
+      <input type="text" formControlName="name" class="form-control" />
+    </div>
+    <!-- ? : safe navigation operator : handles null checks in the html -->
+
+    <!-- <div *ngIf="checkoutForm.get('name')?.touched">
+    <small *ngIf="checkoutForm.get('name')?.hasError('required')"
+      >Name is required</small
+    >
+    <small *ngIf="checkoutForm.get('name')?.hasError('minlength')"
+      >Min
+      {{ checkoutForm.get("name")?.getError("minlength").requiredLength }}
+      chars is required</small
+    >
+  </div> -->
+    <div class="form-group">
+      <label for>Email</label>
+      <input type="text" formControlName="email" class="form-control" />
+    </div>
+    <div class="d-flex flex-row-reverse my-2">
+      <button
+        type="button"
+        (click)="addAddress()"
+        class="btn btn-outline-primary btn-sm"
+      >
+        <i class="fa-solid fa-address-book"></i> Add Address
+      </button>
+    </div>
+    <div formArrayName="address" class="d-flex flex-column p-2">
+      <div
+        [formGroupName]="i"
+        *ngFor="let ctrl of addressObj.controls; let i = index"
+        class="d-flex mb-2"
+      >
+        <input
+          type="text"
+          formControlName="city"
+          class="form-control"
+          placeholder="city"
+        />
+        <input
+          type="text"
+          formControlName="pincode"
+          class="form-control"
+          placeholder="pincode"
+        />
+        <button type="button" (click)="removeAddress(i)" class="btn btn-danger">
+          <i class="fa-solid fa-trash"></i>
+        </button>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+
+  <pre class="alert alert-info col">
+  {{ checkoutForm.value | json }}
+</pre
+  >
+  <!-- <pre>
+  {{ checkoutForm.get("name")?.errors | json }}
+</pre> -->
+</div>

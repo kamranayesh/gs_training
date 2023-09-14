@@ -1,0 +1,278 @@
+Tools
+1. VS Code
+2. Node JS
+3. Angular cli
+4. Angular devtools : debugging
+5. Angular language service : VS Code extension
+
+sudo npm install -g @angular/cli
+ng version
+
+Create a new application
+ng new my-app
+routing : N
+css
+
+cd my-app
+sudo chown -R `whoami` ~/.npm
+npm install --legacy-peer-deps -f
+
+STEPS
+1. creation
+2. registration
+3. usage
+
+CORE
+1. components
+  reuseable building blocks
+  reuseable custom html tags
+  <test></test>
+
+2. directives
+    user-defined html attribute/property
+    directives are used to extend/enhance the functionality of something already existing
+    <p align="" id="" class="" test=""></p>
+
+3. pipes
+    data transformation/data formatting
+
+4. services
+    - http api calls
+    - bussiness logic
+    - data sharing/session management
+
+RUN THE APPLICATION
+cd my-app
+ng serve -o
+
+EXECUTION SEQUENCE
+index.html => main.ts => app.module.ts => bootstrap component
+
+component
+.html : what you want to display
+.ts : logics
+.css : component specific style
+
+To create functionalities : generate
+ng g component name-of-component
+     directive
+     pipe
+     service
+     module
+     guard
+     interceptor
+
+ng g component demo
+
+Components
+1. smallest reusable entity
+2. single responsibility principle
+
+
+Product
+- displaying the data
+
+- fetching the data
+- add to cart
+- navigate
+- waitlist
+
+Page 1
+  Product : add to cart
+
+Page 2
+  Product : add to cart & navigate
+
+Page 3
+  Product : add to cart/waitlist
+
+DESIGN PATTERN : SMART-DUMB
+SMART : Logical : containers
+DUMB : presentation/display : components
+
+SMART : fetches the data from the server, pass it on to the DUMB
+    DUMB : collect the data & displays it
+
+App
+    ProductList : plist
+          Product : data
+
+Component Communication : PARENT <=> CHILD
+PARENT TO CHILD : @Input property
+whenever the child component wants to get any data from the parent : @Input
+<img src="image.jpg" onclick="func()"/>
+
+CHILD TO PARENT : @Output event
+whenever the child want to give something to the parent : @Output
+$event : event object
+
+Pipes
+data transformation/data formatting
+pipe will never change the original data
+
+input | function : param1 : param2
+
+ng g pipe pipes/discount
+
+Change detection
+- event triggered
+- timer functions (setTimeout, setInterval)
+- AJAX
+
+PIPE CHAINING
+price | conversion | currency
+
+Change Detection :
+1. Dirty Checking : will check all the components in the component tree irrespective of what is happening
+2. OnPush : will run the change detection only when any of the inputs have changed
+works only when the data provided using @Input is kept immutable
+all DUMB components should be OnPush strategy
+
+FORMS : @angular/forms
+1. template driven
+2. reactive forms/model driven : ReactiveFormsModule
+
+Form state
+valid & invalid : check whether all the validations of the form/field has been satisfied
+touched & untouched : used to determine whether the user has visited the field or not
+dirty & pristine : used to determin whether the user has changed the value of the field or not
+errors : used to identify which validation error has occured
+
+{ : FormGroup
+  name:'', FormControl
+  email:'',
+  address : [ : FormArray
+    0:{city:'',pincode:''},
+    1:{city:'',pincode:''},
+    2:{city:'',pincode:''}
+  ]
+}
+
+Dynamic forms : https://formly.dev/
+
+Validators
+1. required
+2. minlength
+3. maxlength
+4. min
+5. max
+6. pattern
+
+valid : return null
+invalid : return object
+
+errors : used to get the error object
+hasError : used to check if the validation error has occured
+getError : used to get the error object information of the error occured
+
+to write error messages dynamically : npm install @ngneat/error-tailor
+
+App
+    Currency
+    ProductList
+        Product
+            ProductPrice
+
+Currency => App => ProductList => Product => ProductPrice
+
+Directives
+ng g directive directives/numbers-only
+ng g directive directives/img-fallback
+
+Services : @angular/common/http : HttpClientModule
+1. api calls/http request
+
+Promise : JS
+Observable : RxJs (recommended)
+
+global : app.modules.ts (data sharing/session management) : one single object will be created & available as long as application is running
+local : *.component.ts (http services) : an object will be created everytime we use the component & disposed once the component is unloaded
+
+Component Lifecycle
+constructor : initialization & DI
+ngOnChanges : a function that executes on every @Input value change
+ngOnInit : on load
+ngOnDestroy : on unload : unsubscribing from the services
+
+Observables
+1. HOT : realtime updates : we need to unsubscribe explicitly
+2. COLD : one time activity : self-unsubscribing
+
+PUB-SUB Pattern
+publisher : one
+subscriber : multiple
+ng g service services/currency
+
+Unsubscribing
+1. using subscription object
+2. using piping function : takeUntilDestroyed
+3. using async pipe : automatic subscribe & unsubscribe
+
+SRP : single responsibility
+App : Layout
+    Static : Header, Footer, Menu
+    Dynamic : Router
+
+Separation of concerns
+@angular/router : RouterModule
+
+ng g module app-routing --flat
+
+ng g component containers/error-page
+
+SPA : single page application
+
+Task
+1. get all codes & display in the currency component
+2. cache this data (store it in localstorage)
+3. on first load check if localstorage has the data/not,
+if it does not have make a request else get the data from the storage
+4. use the data in the conversion pipe to do the conversions
+
+Router
+a. defining routes/pages
+b. Navigation :
+  1. navigation links : routerLink directive
+  2. logical redirections : Router service
+c. passing params : url/route params
+  1. path param : required
+  2. query param : optional
+d. private/protected routes : Router Guards
+    1. canActivate : entry : authentication
+    2. canDeactivate : exit : save & exit
+
+
+Features
+ng g module ui
+ng g component ui/components/header
+ng g component ui/components/footer
+
+keep your app.module.ts as lean as possible
+
+ng g m user --routing
+ng g c user/components/login
+
+ng g m user/orders --routing
+ng g c user/orders/components/list
+
+modules
+Eagerly loaded : app.module.ts imports
+Lazily loaded : on-demand loading : code-splitting
+
+ng g component components/login-buttons
+
+Interceptors
+common logic to execute on all http requests
+
+Request => interceptors => server => interceptors => Response
+request interceptor
+response interceptor
+
+ng g interceptor services/http-loader
+
+ng g module loader
+ng g component loader/loader
+ng g service loader/loader
+
+BUILD
+ng build

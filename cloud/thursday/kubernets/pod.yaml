@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: sample-pod2
+spec:
+  containers:
+    - name: python
+      image: kamranayesh/gain-image:latest

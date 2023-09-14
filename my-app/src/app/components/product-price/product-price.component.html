@@ -1,0 +1,18 @@
+<!-- {{ detectChangeDetection() }} -->
+<div class="d-flex flex-row align-items-end justify-content-between">
+  {{ sellingPrice | conversion : code | currency : code }}
+  <div *ngIf="showActualPrice; else new">
+    <small class="text-muted"
+      ><del>{{ price | conversion : code | currency : code }}</del></small
+    >
+    <small class="bg-success text-white rounded fw-light px-2 ms-2">{{
+      sellingPrice | discount : price
+    }}</small>
+  </div>
+</div>
+
+<ng-template #new>
+  <small class="bg-warning text-white rounded fw-light px-2"
+    ><i class="fa-solid fa-bolt"></i>New Arrival</small
+  >
+</ng-template>

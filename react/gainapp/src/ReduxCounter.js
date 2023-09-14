@@ -1,6 +1,7 @@
 import { Button } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { increase, decrease, reset } from "./actions/counteractions";
+
 const ReduxCounter = () => {
   const dispatch = useDispatch();
   let step = 4;
